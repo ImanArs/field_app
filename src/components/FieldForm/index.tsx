@@ -4,12 +4,33 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import axios from 'axios';
 import { useRefresh } from '../../hooks';
 
+interface Sort {
+  id: number;
+  name: string;
+}
+
+interface Field {
+  sort: Sort;
+  sort_id: number;
+  name: string;
+  location: string;
+  cultivated_crop: string;
+  created_at: Date;
+  productivity: number;
+  growth_phase: string;
+  soil_type: string;
+  area: number;
+  ndvi: number | null;
+  user: number;
+}
+
+
 export const FieldForm = () => {
   const userId = localStorage.getItem('user_id');
   
   useRefresh()
-  const [sorts, setSorts] = useState()
-  const [fields, setFields] = useState({
+  const [sorts, setSorts] = useState<Sort[] | undefined>()
+  const [fields, setFields] = useState<Field>({
     sort: {
       id: 0, 
       name: "", 
@@ -24,7 +45,7 @@ export const FieldForm = () => {
     soil_type: "", 
     area: 1, 
     ndvi: null, 
-    user: +userId, 
+    user: +userId!, 
   });
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +57,7 @@ export const FieldForm = () => {
 
   const getSorts = async () => {
     try {
-      const response = await axios.get('http://188.166.57.73:8001/api/v1/sorts/');
+      const response = await axios.get<Sort[]>('http://188.166.57.73:8001/api/v1/sorts/');
       setSorts(response.data);
     } catch (error) {
       console.error(error);
@@ -105,11 +126,12 @@ export const FieldForm = () => {
             placeholder="Outlined"
             style={{ flex: 1 }}
             options={sorts?.map((sort) => ({value: sort.id, label: sort.name}))}
-            onChange={(value, record) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            onChange={(_, record: any) => {
               setFields({
                 ...fields, 
-                sort_id: value,
-                sort: { id: value, name: record.label}
+                sort_id: Number(record.value),
+                sort: { id: Number(record.value), name: `${record.label}`}
               })
             }}
           />
@@ -137,7 +159,7 @@ export const FieldForm = () => {
         </li>
         <li>
           <label htmlFor="growth_phase">Фаза роста растения на момент внесения данных</label>
-          <input type="text" id="growth_phase" name="growth_phase" placeholder="Фаза роста растения на момент внесения данных" value={fields.growthPhase} onChange={handleInputChange} />
+          <input type="text" id="growth_phase" name="growth_phase" placeholder="Фаза роста растения на момент внесения данных" value={fields.growth_phase} onChange={handleInputChange} />
         </li>
       </ul>
       <Button type="primary" onClick={submitData}>Сохранить изменения</Button>
