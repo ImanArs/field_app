@@ -3,7 +3,6 @@ import cls from './Main.module.scss'
 import { FieldForm } from '../components/FieldForm';
 import { useState } from 'react';
 import Modal from '../components/Modal';
-import { FieldTable } from '../components/FieldTable';
 
 const MainPage = () => {
   const { RangePicker } = DatePicker;

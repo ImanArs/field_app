@@ -8,14 +8,12 @@ import { DetailFieldPage } from './pages/DetailFieldPage'
 function App() {
 
   return (
-    <>
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/ndvi" element={<DetailFieldPage />} />
     </Routes>
-    </>
   )
 }
 

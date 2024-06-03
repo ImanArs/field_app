@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useRefresh } from '../../hooks';
 
 export const SignInForm = () => {
+  useRefresh()
   const [fields, setFields] = useState({
     email: '',
     password: '',
@@ -24,15 +25,11 @@ export const SignInForm = () => {
           'Content-Type': 'application/json',
         }
       });
-      console.log(response.data);
-      
       const data_access = response.data.access_token;
       const data_refresh = response.data.refresh_token;
       localStorage.setItem('accessToken', data_access);
       localStorage.setItem('refreshToken', data_refresh);
       localStorage.setItem('user_id', response.data.user_id);
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useRefresh()
     } catch (error) {
       console.error(error);
     }

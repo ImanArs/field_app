@@ -3,7 +3,7 @@ import cls from './styles.module.scss'
 import classNames from 'classnames'
 
 interface ModalProps {
-  className: string
+  className?: string
   isOpen: boolean
   closeModal: () => void
   children: React.ReactNode | React.ReactNode[]

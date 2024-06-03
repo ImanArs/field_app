@@ -12,7 +12,7 @@ export const ProfileForm = () => {
     fieldsCount: '',
   });
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser({
       ...user,
       [event.target.name]: event.target.value,
@@ -20,7 +20,7 @@ export const ProfileForm = () => {
     console.log(user);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(user);
  };
