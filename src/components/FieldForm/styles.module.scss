@@ -1,0 +1,31 @@
+.form {
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 8px;
+
+  .list {
+    list-style: none;
+    padding: 0;
+    li {
+      text-align: start;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+      input, label {
+        border-radius: 6px;
+        border: 1px solid #99abbb;
+        padding: 8px 20px;
+        font-size: 14px;
+        outline: none;
+      }
+    }
+  }
+  button {
+    width: 100%;
+    font-size: 18px;
+    // padding: 10px 0;
+    // height: 100%;
+  }
+}
