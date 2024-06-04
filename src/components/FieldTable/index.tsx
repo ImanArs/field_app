@@ -29,14 +29,14 @@ export const FieldTable = () => {
     fetchData();
   }, []);
   const columns = [
-    { title: 'Поле', dataIndex: 'name', key: 'name' },
-    { title: 'Местоположение', dataIndex: 'location', key: 'location' },
-    { title: 'Культура', dataIndex: 'cultivated_crop', key: 'culture' },
-    { title: 'Сорт', dataIndex: 'sort', key: 'sort', render: (sort: { name: string }) => sort.name, },
-    { title: 'Дата', dataIndex: 'created_at', key: 'date', render: (date: string) => new Date(date).toLocaleDateString()},
-    { title: 'NDVI', dataIndex: 'ndvi', key: 'ndvi' },
-    { title: 'Урожайность', dataIndex: 'productivity', key: 'yield' },
-    { title: 'Фаза роста', dataIndex: 'growth_phase', key: 'growthPhase' },
+    { title: 'Поле', dataIndex: 'name', key: '1' },
+    { title: 'Местоположение', dataIndex: 'location', key: '2' },
+    { title: 'Культура', dataIndex: 'cultivated_crop', key: '3' },
+    { title: 'Сорт', dataIndex: 'sort', key: '4', render: (sort: { name: string }) => sort.name, },
+    { title: 'Дата', dataIndex: 'created_at', key: '5', render: (date: string) => new Date(date).toLocaleDateString()},
+    { title: 'NDVI', dataIndex: 'ndvi', key: '6' },
+    { title: 'Урожайность', dataIndex: 'productivity', key: '7' },
+    { title: 'Фаза роста', dataIndex: 'growth_phase', key: '8' },
   ];
 
   // const data = Array.from({ length: 15 }, (_, i) => ({

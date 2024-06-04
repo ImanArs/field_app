@@ -3,6 +3,7 @@ import cls from './Main.module.scss'
 import { FieldForm } from '../components/FieldForm';
 import { useState } from 'react';
 import Modal from '../components/Modal';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
   const { RangePicker } = DatePicker;
@@ -19,7 +20,9 @@ const MainPage = () => {
           номер поля
           <Input type='text' placeholder='номер поля' />
         </label>
+        <Link to={'/ndvi'}>
           <Button type='primary'>показать отчет</Button>
+        </Link>
           <Button type='primary' onClick={() => setModalOpen(!modalOpen)}>внести данные</Button>
       </div>
       <div onClick={() => setModalOpen(false)}>

@@ -1,12 +1,22 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import MainPage from './pages/Main'
 import LoginPage from './pages/LoginPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { DetailFieldPage } from './pages/DetailFieldPage'
+import { useEffect } from 'react'
+import { useRefresh } from './hooks'
 
 function App() {
-
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (localStorage.getItem('accessToken')) {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useRefresh()
+    } else {
+      navigate('/login')
+    }
+  }, [navigate])
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />

@@ -2,8 +2,10 @@ import { Button, Input } from 'antd';
 import cls from './styles.module.scss'
 import { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
+  const navigate = useNavigate()
   const [fields, setFields] = useState({
     first_name: '',
     email: '',
@@ -23,6 +25,7 @@ const SignUpForm = () => {
           'Content-Type': 'application/json',
         }
       });
+      navigate('/')
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -39,7 +42,9 @@ const SignUpForm = () => {
         <Button>Очистить</Button>
         <Button type="primary" onClick={submitData}>Зарегестрироваться</Button>
       </div>
-      <Button>уже есть аккаунт ?</Button>
+      <Link to={'/login'}>
+        <Button>уже есть аккаунт ?</Button>
+      </Link>
     </form>
   )
 }

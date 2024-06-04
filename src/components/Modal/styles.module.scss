@@ -10,6 +10,17 @@
   align-content: center;
   align-items: center;
   z-index: 1000;
+  .closeModal {
+    cursor: pointer;
+    max-width: 120px;
+    height: 120px;
+    width: 100%;
+    background: none;
+    border: none;
+    img {
+      width: 100%;
+    }
+  }
   .modalContent {
     height: 80vh;
     overflow: auto;

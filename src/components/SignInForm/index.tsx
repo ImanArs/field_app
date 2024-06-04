@@ -2,10 +2,10 @@ import {Button, Input} from 'antd';
 import cls from './styles.module.scss'
 import axios from 'axios';
 import { useState } from 'react';
-import { useRefresh } from '../../hooks';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const SignInForm = () => {
-  useRefresh()
+  const navigate = useNavigate()
   const [fields, setFields] = useState({
     email: '',
     password: '',
@@ -30,6 +30,8 @@ export const SignInForm = () => {
       localStorage.setItem('accessToken', data_access);
       localStorage.setItem('refreshToken', data_refresh);
       localStorage.setItem('user_id', response.data.user_id);
+      navigate('/')
+      console.log(response)
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +44,9 @@ export const SignInForm = () => {
       <Input type="password" placeholder="Password" name='password' onChange={handleInputChange} required />
       <div className={cls.assets_btn}>
         <Button>Забыли пароль ?</Button>
-        <Button>еще не зарегестрировали аккаунт ?</Button>
+        <Link to={'/login'}>
+          <Button>еще не зарегестрировали аккаунт ?</Button>
+        </Link>
       </div>
         <Button type="primary" onClick={submitData}>Войти</Button>
     </form>

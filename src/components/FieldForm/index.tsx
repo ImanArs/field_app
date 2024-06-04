@@ -24,7 +24,6 @@ interface Field {
   user: number;
 }
 
-
 export const FieldForm = () => {
   const userId = localStorage.getItem('user_id');
   

@@ -20,7 +20,9 @@ const Modal = (props: ModalProps) => {
         <div className={classNames(cls.modalContent, className)} onClick={onClick}>
           <div className={cls.title}>
           <h2>{title}</h2>
-          <button onClick={closeModal}>close modal</button>
+          <button className={cls.closeModal} onClick={closeModal}>
+            <img src="https://logowik.com/content/uploads/images/close1437.jpg" alt="" />
+          </button>
           </div>
           {children}
         </div>
