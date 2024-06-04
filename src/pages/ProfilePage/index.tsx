@@ -9,6 +9,7 @@ export const ProfilePage = () => {
     localStorage.removeItem('accessToken')
     localStorage.removeItem('refreshToken')
     localStorage.removeItem('user_id')
+    // for navigate to login page
     navigate('/login')
   }
   return (
