@@ -56,7 +56,7 @@ export const FieldForm = () => {
 
   const getSorts = async () => {
     try {
-      const response = await axios.get<Sort[]>('http://188.166.57.73:8001/api/v1/sorts/');
+      const response = await axios.get<Sort[]>('http://167.99.145.49:8001/api/v1/sorts/');
       setSorts(response.data);
     } catch (error) {
       console.error(error);
@@ -70,7 +70,7 @@ export const FieldForm = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     try {
       const token = localStorage.getItem('accessToken');
-      const response = await axios.post('http://188.166.57.73:8001/api/v1/vegetables/', fields,  {
+      const response = await axios.post('http://167.99.145.49:8001/api/v1/vegetables/', fields,  {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,

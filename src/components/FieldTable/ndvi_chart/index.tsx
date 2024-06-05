@@ -9,7 +9,7 @@ export const NDVIChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://188.166.57.73:8001/api/v1/vegetables', {
+        const response = await axios.get('http://167.99.145.49:8001/api/v1/vegetables', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
           }
