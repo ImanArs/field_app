@@ -32,7 +32,7 @@ const MainPage = () => {
           title='Внести данные о поле'
           onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()} // Added type declaration for onClick prop
         >
-          <FieldForm />
+          <FieldForm closeModal={() => setModalOpen(false)} />
         </Modal>
       </div>
     </main>

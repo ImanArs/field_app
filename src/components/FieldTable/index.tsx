@@ -39,18 +39,6 @@ export const FieldTable = () => {
     { title: 'Фаза роста', dataIndex: 'growth_phase', key: '8' },
   ];
 
-  // const data = Array.from({ length: 15 }, (_, i) => ({
-  //   key: i,
-  //   field: `Field ${i}`,
-  //   location: `Location ${i}`,
-  //   culture: `Culture ${i}`,
-  //   sort: `Sort ${i}`,
-  //   date: `Date ${i}`,
-  //   ndvi: `NDVI ${i}`,
-  //   yield: `Yield ${i}`,
-  //   growthPhase: `Growth Phase ${i}`,
-  // }));
-
   return (
     <div className={cls.root}>
       <Button type="primary" onClick={() => setModalOpen(true)}>График динамики NDVI</Button>

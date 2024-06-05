@@ -3,6 +3,7 @@ import cls from './styles.module.scss'
 import { ChangeEvent, useEffect, useState } from 'react'
 import axios from 'axios';
 import { useRefresh } from '../../hooks';
+import { toast, ToastContainer } from 'react-toastify';
 
 interface Sort {
   id: number;
@@ -24,7 +25,11 @@ interface Field {
   user: number;
 }
 
-export const FieldForm = () => {
+interface Props {
+  closeModal?: () => void;
+}
+export const FieldForm = (props: Props) => {
+  const { closeModal } = props
   const userId = localStorage.getItem('user_id');
   
   useRefresh()
@@ -76,6 +81,10 @@ export const FieldForm = () => {
           'Authorization': `Bearer ${token}`,
         }
       });
+      toast.success("успешно загружено!")
+      if (closeModal) {
+        closeModal();
+      }
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -84,6 +93,7 @@ export const FieldForm = () => {
 
   return (
     <form className={cls.form}>
+      <ToastContainer />
       <ul className={cls.list}>
         <li>
           <label htmlFor="name">Название поля</label>
