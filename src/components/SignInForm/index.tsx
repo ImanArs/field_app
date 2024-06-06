@@ -43,12 +43,9 @@ export const SignInForm = () => {
       <Input type="email" placeholder="Email" name='email' onChange={handleInputChange} required />
       <Input type="password" placeholder="Password" name='password' onChange={handleInputChange} required />
       <div className={cls.assets_btn}>
-        <Button>Забыли пароль ?</Button>
-        <Link to={'/login'}>
-          <Button>еще не зарегестрировали аккаунт ?</Button>
-        </Link>
-      </div>
         <Button type="primary" onClick={submitData}>Войти</Button>
+      </div>
+        
     </form>
   )
 }

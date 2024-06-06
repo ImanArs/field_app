@@ -2,7 +2,7 @@ import { Button, Input } from 'antd';
 import cls from './styles.module.scss'
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
   const navigate = useNavigate()
@@ -39,12 +39,15 @@ const SignUpForm = () => {
       <Input type="text" name="email" placeholder="E-mail" value={fields.email} onChange={handleInputChange} required />
       <Input type="password" name="password" placeholder="Password" value={fields.password} onChange={handleInputChange} required />
       <div className={cls.assets_btn}>
-        <Button>Очистить</Button>
+        <Button onClick={() => setFields({
+          first_name: '',
+          email: '',
+          password: '',
+        })}>
+          Очистить
+        </Button>
         <Button type="primary" onClick={submitData}>Зарегестрироваться</Button>
       </div>
-      <Link to={'/login'}>
-        <Button>уже есть аккаунт ?</Button>
-      </Link>
     </form>
   )
 }
